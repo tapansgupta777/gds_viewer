@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TinyTapeout GDS Viewer</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+        }
+
+        .textShadow {
+            text-shadow:
+            -1px -1px 0 #202020,
+             0   -1px 0 #202020,
+             1px -1px 0 #202020,
+             1px  0   0 #202020,
+             1px  1px 0 #202020,
+             0    1px 0 #202020,
+            -1px  1px 0 #202020,
+            -1px  0   0 #202020;
+        }
+        
+        #loadingStatus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: medium;
+            color: white;
+            font-weight: bold;
+        }
+
+        #dropZone {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            border: 2px dashed #666;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #dropZone.hidden {
+            display: none;
+        }
+        #dropZone.dragover {
+            border-color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #crossSection {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        #instanceClassTitle {
+            font-size: large;
+        }
+
+        #information {
+            font-size: small;
+        }
+
+        .lil-gui { 
+            /* --folder-ident: 4; */
+            --background-color: #181818;
+            /* --widget-color: rgb(0, 89, 134); */
+            /* --padding: 2px; */
+        	--width: 300px;
+	        /* --name-width: 65%; */
+        }
+
+        .selection_link a {
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+  <script type="module" crossorigin src="./assets/index.c01a8db9.js"></script>
+</head>
+
+<body>
+
+    <div id="crossSection"></div>
+    <div id="loadingStatus">LOADING...</div>
+
+    <div style="position: absolute; color:white; left: 5px; top: 5px;">
+        <div id="instanceClassTitle" class="textShadow">DESIGN</div>
+        <div id="information" class="textShadow"></div>
+        <div class="textShadow"><br>KEYS
+            <br>1: Hide Fill, Decap, Tap cells
+            <br>2: Hide top cell geometry
+            <br>3: Isolate selection / back
+            <br>4: Zoom to selection
+        </div>
+        
+    </div>
+
+    <div id="dropZone" class="hidden">
+        <div style="font-size: 18px; margin-bottom: 10px;">Drop GDS file here</div>
+        <div style="font-size: 14px; opacity: 0.8;">or click to select</div>
+    </div>
+
+    
+</body>
+
+</html>
